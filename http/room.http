@@ -1,0 +1,41 @@
+
+GET http://localhost:8080/v1/hotel-api/hotels/101/rooms
+
+###
+
+POST http://localhost:8080/v1/hotel-api/hotels/101/rooms
+Content-Type: application/json
+
+{
+  "name" : "TwinRoom2",
+  "capacity" : 2,
+  "floor" : 3,
+  "hasBathtub" : true,
+  "viewType" : "oceanView"
+}
+
+### 잘못된 요청
+
+POST http://localhost:8080/v1/hotel-api/hotels/101/rooms
+Content-Type: application/json
+
+{
+  "name" : "잘못된 viewType",
+  "capacity" : 2,
+  "floor" : 3,
+  "hasBathtub" : true,
+  "viewType" : "roomView"
+}
+
+### 존재하지 않는 호텔
+
+POST http://localhost:8080/v1/hotel-api/hotels/100/rooms
+Content-Type: application/json
+
+{
+  "name" : "room2",
+  "capacity" : 2,
+  "floor" : 3,
+  "hasBathtub" : true,
+  "viewType" : "roomView"
+}
