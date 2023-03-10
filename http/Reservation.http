@@ -1,9 +1,10 @@
-POST http://localhost:8080/v1/hotel-api/users/100
+POST http://localhost:8080/v1/hotel-api/reservation
 Content-Type: application/json
+X-User-Id:100
 
 {
-  "startDate" : "2023-11-09",
-  "endDate" : "2023-11-10",
+  "startDate" : "2023-10-05",
+  "endDate" : "2023-10-06",
   "hotelName" : "FirstHotel",
   "roomName" : "TwinRoom1"
 }
@@ -11,20 +12,22 @@ Content-Type: application/json
 
 ### 예약 불가능한 사용자
 
-POST http://localhost:8080/v1/hotel-api/users/101
+POST http://localhost:8080/v1/hotel-api/reservation
 Content-Type: application/json
+user-id:101
 
 {
-  "startDate" : "2023-11-12",
-  "endDate" : "2023-11-13",
+  "startDate" : "2023-10-12",
+  "endDate" : "2023-10-13",
   "hotelName" : "FirstHotel",
   "roomName" : "TwinRoom1"
 }
 
 
 ### 겹치는 날짜
-POST http://localhost:8080/v1/hotel-api/users/100
+POST http://localhost:8080/v1/hotel-api/reservation
 Content-Type: application/json
+user-id:100
 
 {
   "startDate" : "2023-11-12",

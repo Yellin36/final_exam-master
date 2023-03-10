@@ -26,6 +26,7 @@ import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.TestPropertySource;
 
 @ActiveProfiles("dev")
+@Disabled
 public class RoomServiceTest {
     RoomService roomService;
 
@@ -45,7 +46,6 @@ public class RoomServiceTest {
     }
 
     @Test
-    @Disabled
     void getRooms() {
         //given
         Long hotelId = 101L;

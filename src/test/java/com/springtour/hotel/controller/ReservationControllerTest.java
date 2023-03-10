@@ -14,7 +14,6 @@ import com.springtour.hotel.dto.ReservationCreateResponse;
 import com.springtour.hotel.exception.ClientException;
 import com.springtour.hotel.service.ReservationService;
 import java.time.LocalDate;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
@@ -56,7 +55,8 @@ class ReservationControllerTest {
         String errorMessage = "잘못된 요청입니다.";
 
         //when
-        ResultActions result = mockMvc.perform(post("/v1/hotel-api/users/{userId}", userId)
+        ResultActions result = mockMvc.perform(post("/v1/hotel-api/reservation")
+                .header("X-User-Id", userId)
                 .content(objectMapper.writeValueAsString(request))
                 .contentType(MediaType.APPLICATION_JSON));
 
@@ -86,7 +86,8 @@ class ReservationControllerTest {
                 .thenThrow(new ClientException(HttpStatus.BAD_REQUEST, errorMessage));
 
         //when
-        ResultActions result = mockMvc.perform(post("/v1/hotel-api/users/{userId}", userId)
+        ResultActions result = mockMvc.perform(post("/v1/hotel-api/reservation")
+                .header("X-User-Id", userId)
                 .content(objectMapper.writeValueAsString(request))
                 .contentType(MediaType.APPLICATION_JSON));
 
@@ -116,7 +117,8 @@ class ReservationControllerTest {
                 .thenThrow(new ClientException(HttpStatus.BAD_REQUEST, errorMessage));
 
         //when
-        ResultActions result = mockMvc.perform(post("/v1/hotel-api/users/{userId}", userId)
+        ResultActions result = mockMvc.perform(post("/v1/hotel-api/reservation")
+                .header("X-User-Id", userId)
                 .content(objectMapper.writeValueAsString(request))
                 .contentType(MediaType.APPLICATION_JSON));
 
@@ -146,7 +148,8 @@ class ReservationControllerTest {
                 .thenThrow(new ClientException(HttpStatus.BAD_REQUEST, errorMessage));
 
         //when
-        ResultActions result = mockMvc.perform(post("/v1/hotel-api/users/{userId}", userId)
+        ResultActions result = mockMvc.perform(post("/v1/hotel-api/reservation")
+                        .header("X-User-Id", userId)
                 .content(objectMapper.writeValueAsString(request))
                 .contentType(MediaType.APPLICATION_JSON));
 
